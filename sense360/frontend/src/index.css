@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { @apply bg-ink font-sans text-slate-100 antialiased; }
+:focus-visible { outline: 3px solid #facc15; outline-offset: 2px; }
+
+@layer components {
+  .card { @apply rounded-2xl border border-line bg-panel p-5; }
+  .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl border border-line bg-panel px-5 py-3 text-base font-bold text-slate-100 transition-colors hover:border-teal disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply border-transparent bg-teal text-ink hover:border-transparent hover:bg-teal/85; }
+  .badge { @apply inline-block rounded-full border px-3 py-1 text-sm font-bold; }
+  .badge-sim { @apply border-amber-400 bg-amber-400/10 text-amber-300; }
+  .badge-real { @apply border-teal bg-teal/10 text-teal; }
+  .muted { @apply text-slate-300; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes buzz { 0%,100% { transform: translateX(0) } 20% { transform: translateX(-4px) } 40% { transform: translateX(4px) } 60% { transform: translateX(-3px) } 80% { transform: translateX(3px) } }
+  .buzz { animation: buzz 0.18s linear infinite; }
+}
+
+/* High-contrast mode */
+.hc body { background: #000; color: #fff; }
+.hc .card, .hc .btn { background: #000; border-color: #fff; }
+.hc .btn-primary { background: #fff; color: #000; }
+.hc .muted { color: #fff; }
